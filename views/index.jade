@@ -1,0 +1,18 @@
+extends layout
+
+block content
+ .container
+  h1.header FreeCodeCamp File Metadata Microservice
+  blockquote 
+   p: b User stories:
+   p 1) I can submit a FormData object that includes a file upload.
+   p 2) When I submit something, I will receive the file size in bytes within the JSON response.
+  form(method='post', action='/api/upload', enctype='multipart/form-data')
+   .form-group
+   input(name='file', type='file')
+   br
+   input.btn.btn-primary(type='submit', name='submit',value='Upload File')
+   br
+   //- Checks if there is a message. Prints the message if there is one
+  if (fileSize.length > 0)
+   p= fileSize
